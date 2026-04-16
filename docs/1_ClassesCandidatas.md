@@ -1,4 +1,4 @@
-# Requisitos Funcionais
+# Requisitos Funcionais | Classes Candidatas
 
 > Em <span style="color: rgb(255,200,0);">amarelo</span>, os substantivos das <span style="color: rgb(80,235,0);">classes candidatas</span>
 

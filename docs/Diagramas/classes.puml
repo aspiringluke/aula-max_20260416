@@ -1,0 +1,114 @@
+@startuml
+
+skinparam classAttributeIconSize 0
+
+class Aluno {
+    idAluno
+    nome
+    cpf
+    email
+    telefone
+    endereco
+    rfid
+    status
+}
+
+class Plano {
+    idAluno
+    nome
+    cpf
+    email
+    telefone
+    endereco
+    rfid
+    status
+}
+
+class Pagamento {
+    idPagamento
+    data
+    valor
+    formaPagamento
+    status
+}
+
+class Acesso {
+    dAcesso
+    dataHora
+    autorizado
+}
+
+class Aula {
+    idAula
+    nome
+    horario
+    capacidadeMaxima
+}
+
+class Agendamento {
+    idAgendamento
+    dataReserva
+    status
+}
+
+class Presenca {
+    idPresenca
+    data
+    presente
+}
+
+class AvaliacaoFisica {
+    idAvaliacao
+    data
+    peso
+    imc
+    percentualGordura
+    observacoes
+    anexo
+}
+
+class Notificacao {
+    idNotificacao
+    tipo
+    dataEnvio
+    status
+    mensagem
+}
+
+
+abstract class Funcionario {
+    nome
+}
+
+class Instrutor {
+    idInstrutor
+    especialidade
+}
+
+class Recepcionista {
+    dRecepcionista
+}
+
+class Gerente {
+    idGerente
+}
+
+Funcionario <|-- Gerente
+Funcionario <|-- Recepcionista
+Funcionario <|-- Instrutor
+
+Aluno "n" --> "1" Plano: Escolhe
+Aluno "1" --> "n" Pagamento: Realiza
+Aluno "1" --> "n" Acesso: Registra
+Aluno "1" --> "n" Agendamento: Realiza
+Aluno "1" --> "n" AvaliacaoFisica: Possui
+Aluno "n" --> "n" Notificacao: Recebe
+
+Aula "1" --> "n" Agendamento: Possui
+Aula "1" --> "n" Presenca: Registra
+
+Instrutor --> Aula: Ministra
+Instrutor --> AvaliacaoFisica: Registra
+Instrutor --> Presenca: Registra
+
+@enduml
