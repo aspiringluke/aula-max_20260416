@@ -11,6 +11,12 @@ class Aluno {
     endereco
     rfid
     status
+    
+    contratarPlano()
+    agendarAula()
+    cancelarAgendamento()
+    atualizarStatus()
+    registrarAcesso()
 }
 
 class Plano {
@@ -30,12 +36,19 @@ class Pagamento {
     valor
     formaPagamento
     status
+    
+    registrar()
+    confirmar()
+    cancelar()
 }
 
 class Acesso {
-    dAcesso
+    idAcesso
     dataHora
     autorizado
+    
+    registrar()
+    validar()
 }
 
 class Aula {
@@ -43,12 +56,19 @@ class Aula {
     nome
     horario
     capacidadeMaxima
+
+    verificarCapacidade()
+    reservarVaga()
+    liberarVaga()
+    registrarPresenca()
 }
 
 class Agendamento {
     idAgendamento
     dataReserva
     status
+    
+    agendar()
 }
 
 class Presenca {
@@ -73,6 +93,9 @@ class Notificacao {
     dataEnvio
     status
     mensagem
+    
+    enviarNotificao()
+    marcarComoLida()
 }
 
 
@@ -83,14 +106,24 @@ abstract class Funcionario {
 class Instrutor {
     idInstrutor
     especialidade
+    
+    registrarPresenca()
+    registrarAvaliacaoFisica()
 }
 
 class Recepcionista {
-    dRecepcionista
+    idRecepcionista
+
+    cadastrarAluno()
+    registrarPagamento()
 }
 
 class Gerente {
     idGerente
+
+    criarPlano()
+    excluirPlano()
+    gerarRelatorio()
 }
 
 Funcionario <|-- Gerente
